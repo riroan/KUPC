@@ -1,0 +1,32 @@
+\begin{problem}{즐거운 XOR}{표준 입력(stdin)}{표준 출력(stdout)}{2\,초}{512\,MB}
+
+$N$개의 원소로 이루어진 수열 $a_1, a_2, \dots , a_N$이 있다.
+
+$1 \le i < j < k \le N$를 만족하는 $(i, j, k)$ 중에서 $a_i \oplus a_j \oplus a_k$의 최댓값을 구해보자.
+
+\InputFile
+첫 번째 줄에 원소의 개수 $N$이 주어진다. $(3 \le N \le 200\,000)$
+
+두 번째 줄에 $N$개의 정수 $a_1, a_2, \dots, a_N$이 공백으로 구분되어 주어진다. $(1 \le a_i \le 100)$
+
+\OutputFile
+$a_i \oplus a_j \oplus a_k$의 최댓값을 출력한다. $(1 \le i < j < k \le N)$
+
+\Examples
+
+\begin{example}
+\exmp{
+5
+1 2 3 4 5
+}{%
+7
+}%
+\exmp{
+6
+2 3 2 3 2 3
+}{%
+3
+}%
+\end{example}
+
+\end{problem}
