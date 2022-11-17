@@ -1,0 +1,21 @@
+\section{J. 압도적 XOR수}
+
+\begin{frame} % No title at first slide
+    \sectiontitle{J}{압도적 XOR수}
+    \sectionmeta{
+        \texttt{divide\_and\_conquer}\\
+        출제진 의도 -- \textbf{\color{acgold}Challenging}
+    }
+    \begin{itemize}
+        \item 출제자: \texttt{kth990303}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\textbf{J}. 압도적 XOR수}
+    \begin{itemize}
+        \item 정점 $u$를 잡고, $u$를 지나는 경로만 고려해 봅시다. $u$는 센트로이드로 잡읍시다.
+        \item $D_v$를 $u$에서부터 거리라 하면, $(D_v+D_w)(C_v+C_w)$의 최댓값을 구하면 됩니다.
+        \item 단, $v$와 $w$는 같은 서브트리에서 오면 안 되고, 다른 집합에 있어야 합니다. $u$ 또한 서브트리로 취급합시다.
+        \item 위 조건들을 무시하면, $(-D_v,-C_v)$중 하나를 왼쪽 아래 꼭지점으로, $(D_w,C_w)$중 하나를 오른쪽 위 꼭지점으로 하는 직사각형의 최대 넓이를 구하는 문제가 됩니다. 이는 전처리 후 분할 정복 최적화로 해결할 수 있음이 잘 알려져 있습니다. 17WF Money for Nothing 문제를 참조하세요.
+    \end{itemize}
+\end{frame}
