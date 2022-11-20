@@ -48,9 +48,9 @@
     BoldFont = *-Bold
     ]
 
-\setbeamercolor{itemize item}{fg=ucpc-orange}
-\setbeamercolor{enumerate item}{fg=ucpc-orange}
-\setbeamercolor{alerted text}{fg=ucpc-orange}
+\setbeamercolor{itemize item}{fg=kupc-green}
+\setbeamercolor{enumerate item}{fg=kupc-green}
+\setbeamercolor{alerted text}{fg=kupc-green}
 \setbeamercolor{section in toc}{fg=black}
 
 \setbeamerfont{itemize/enumerate body}{size=\normalsize}
@@ -76,7 +76,7 @@
 }
 
 \newcommand{\sectiontitle}[2]{
-    {\huge \addfontfeatures{LetterSpace=-5} \color{ucpc-orange} \textbf{#1}. #2}\\
+    {\huge \addfontfeatures{LetterSpace=-5} \color{kupc-green} \textbf{#1}. #2}\\
     \vspace{3mm}
 }
 
@@ -99,7 +99,7 @@
 		\fill[color=white] (0,0) rectangle(\the\paperwidth,\the\paperheight);
 
 		\ifnum\thepage=1\relax
-			\fill[color=ucpc-orange] (0, 4cm) rectangle(\slidewidth,\slideheight);
+			\fill[color=kupc-green] (0, 4cm) rectangle(\slidewidth,\slideheight);
 			
 			\node[anchor=south,text width=\slidewidth-2cm,inner xsep=0.5cm,execute at begin node=\setlength{\baselineskip}{18pt}] at (0.5\slidewidth,4.2cm) {\color{white}\Huge\textbf{\inserttitle}};
 			\node[anchor=north east,align=right] at (\slidewidth-1.0cm,3.8cm) {\color{black}\tiny\insertsubtitle};
@@ -109,9 +109,9 @@
 			\node[anchor=south west] at(0.9cm,0.4cm) {\color{ucpc-gray}\tiny\vphantom{lp}{\inserttitle}};
 			\node[anchor=south east] at(\slidewidth-1.0cm,0.4cm) {\color{ucpc-gray}\tiny\insertdate};
 		\else
-			\node[anchor=north,text width=\slidewidth-2.0cm,inner xsep=0.5cm,inner ysep=0.25cm] at (0.5\slidewidth,\slideheight-0.4cm) {\color{ucpc-orange}\footnotesize{\insertframetitle}};
+			\node[anchor=north,text width=\slidewidth-2.0cm,inner xsep=0.5cm,inner ysep=0.25cm] at (0.5\slidewidth,\slideheight-0.4cm) {\color{kupc-green}\footnotesize{\insertframetitle}};
 			
-			\node[anchor=north east,inner sep=0pt] (russell) at (\slidewidth-0.9cm, \slideheight-0.5cm) {\includegraphics[height=0.6cm]{ucpc20-logo.png}};
+			\node[anchor=north east,inner sep=0pt] (russell) at (\slidewidth-0.9cm, \slideheight-0.5cm) {\includegraphics[height=0.6cm]{logo.png}};
 			\node[anchor=south west] at(0.9cm,0.4cm) {\color{ucpc-gray}\tiny\vphantom{lp}{\inserttitle}};
 			\node[anchor=south east] at(\slidewidth-0.9cm,0.4cm) {\color{ucpc-gray}\tiny\insertframenumber};
 		\fi
