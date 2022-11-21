@@ -3,7 +3,7 @@
 \begin{frame} % No title at first slide
     \sectiontitle{E}{즐거운 XOR}
     \sectionmeta{
-        \texttt{combinatorics}\\
+        \texttt{pigeonhole\_principle, brute\_force}\\
         출제진 의도 -- \textbf{\color{acsilver}Medium}
     }
     \begin{itemize}
@@ -12,12 +12,18 @@
 \end{frame}
 
 \begin{frame}{\textbf{E}. 즐거운 XOR}
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[width=0.5\linewidth]{../images/function-restore/fx-1n.png}
-    \end{figure}
     \begin{itemize}
-        \item 함수 그래프는 각 컴포넌트가 하나의 사이클에 연결된 트리들로 이루어져 있습니다.
-        \item 자기보다 더 적은 수의 정점에 도달할 수 있는 정점이 있다면 트리에 속하고, 그렇지 않으면 사이클에 속하는 정점입니다.
-    \end{itemize}
+		\item $a_i$ 의 제한이 작음에 주목합니다.
+		\item 비둘기집 원리에 의해 배열 크기가 $100$이 넘어가면 중복되는 원소가 적어도 하나 존재합니다.
+		\item 원소의 개수를 세는 배열을 $A$라고 정의하겠습니다.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\textbf{E}. 즐거운 XOR}
+	\begin{itemize}
+		\item 이제 $(0,0,0), (0,0,1), \cdots , (100,100,100)$까지 모두 탐색을 하면 됩니다.
+		\item $(a, b, c)$인 경우 $A[a]=A[a]-1, A[b]=A[b]-1, A[c]=A[c]-1$를 했을 때 배열 $A$에 음수가 없는 경우에만 탐색합니다.
+		\item 탐색이 완료된 후 가장 큰 xor값을 출력하면 됩니다.
+		\item 총 시간복잡도는 \complexity{100^3}입니다.
+	\end{itemize}
 \end{frame}
