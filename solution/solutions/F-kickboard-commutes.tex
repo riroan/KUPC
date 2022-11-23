@@ -12,10 +12,24 @@
 \end{frame}
 
 \begin{frame}{\textbf{F}. 킥보드로 등교하기}
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[width=0.35\linewidth]{../images/mango/mango_sleepy.png}
-    \end{figure}
-    
-    문제의 모티브가 된 망고님입니다. 풀이랑 상관은 없지만 귀엽습니다.
+    \begin{itemize}
+        \item 가장 용량이 작은, 즉 가장 싼 킥보드를 사기 위해서는 방문하는 충전소 간 거리가 짧을수록 유리합니다. 
+        \item $K$가 작다면 모든 경우를 완전탐색하거나 다이나믹 프로그래밍으로 최적의 해를 구할 수 있지만, 충전 가능 횟수가 매우 큽니다.
+        \item 어떻게 하면 좋을까요?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\textbf{F}. 킥보드로 등교하기}
+    \begin{itemize}
+        \item 킥보드의 용량이 클수록 충전소에 방문해야 하는 횟수는 감소하게 됩니다. 
+        \item 다시 말해 킥보드의 용량이 특정 값 이상이면 조건에 만족하게 되며, 단조함수 형태로 증감하므로 킥보드의 용량을 매개변수로 두어 접근할 수 있습니다.
+        \item 이 때, 킥보드의 용량 $L$에 대해 모든 경우를 순차적으로 탐색하면, 특정 용량일 때 통학 가능 여부를 판단하는 로직 $O(N)$을 최대 $L$번 수행하므로 $O(NL)$로 시간초과를 받습니다.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{\textbf{F}. 킥보드로 등교하기}
+    \begin{itemize}
+        \item 따라서 킥보드 용량과 충전 횟수 관계가 서로 단조증감함수 성질을 지닌다는 점을 이용해 이분 탐색으로 $O(NlogL)$로 해결해야 합니다.
+        \item 집과 학교의 위치도 탐색 범위에 포함시켜야된다는 점을 유의합시다.
+    \end{itemize}
 \end{frame}
