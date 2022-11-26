@@ -3,7 +3,7 @@
 \begin{frame} % No title at first slide
     \sectiontitle{I}{문자열 게임}
     \sectionmeta{
-        \texttt{greedy}\\
+        \texttt{dynamic\_programming}\\
         출제진 의도 -- \textbf{\color{acgold}Hard}
     }
     \begin{itemize}
@@ -12,13 +12,29 @@
 \end{frame}
 
 \begin{frame}{\textbf{I}. 문자열 게임}
-    풀이를 열심히 준비해서 오니까 검수진한테
-    
-    \vspace{18pt}
-    
-    \texttt{"이거 너무 Well-Known이라서 사전지식을 아는 사람만 풀둣"}
-    
-    \vspace{18pt}
-    
-    이라고 구박받은 문제입니다.ㅠㅠ
+\begin{itemize}
+	\item 단어의 마지막이 $j$번째 보드에서 끝나게 될 때의 최대 매칭 횟수에 대해 생각해봅시다.
+	\item 이는 마지막 문자를 제외한 단어를 매칭시켰을 때, $j - 1$ 또는 $j + 1$에서 최대 매칭 횟수를 이용하여 구할 수 있습니다.
+	\item 이 문제는 부분 문제를 이용하여 전체 문제를 해결할 수 있으므로, 2차원 dp를 이용하여 해결할 수 있습니다.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\textbf{I}. 문자열 게임}
+	\begin{itemize}
+		\item $dp[i][j]$를 "단어의 $i$번째 문자까지 매칭하고, 마지막 문자가 보드의 $j$번째에 매칭됐을 때, 최대 매칭 횟수" 라고 정의하겠습니다.
+		\item $dp[i][j]$ 즉, 마지막으로 보드의 $j$번째에 매칭되기 위해서는 $i - 1$번째 문자에서 $j - 1$ 또는 $j + 1$에 매칭되어야 합니다.
+		\item $dp[i][j] = max(dp[i - 1][j - 1], dp[i - 1][j + 1]) + \begin{cases}
+			1, & \text{if}\ word[i] = board[j] \\
+			0, & \text{otherwise}
+		\end{cases} $
+		\item 보드의 양 끝의 예외처리에 유의해야합니다.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\textbf{I}. 문자열 게임}
+	\begin{itemize}
+		\item dp의 첫 항은 단어의 첫 문자와 보드의 문자가 일치하면 1, 아니면 0으로 초기화 할 수 있습니다.
+		\item 답은 dp의 마지막 행의 최대값이 정답이 됩니다.
+		\item 이 풀이의 총 시간복잡도는 \complexity{N M}입니다.
+	\end{itemize}
 \end{frame}
