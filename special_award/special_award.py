@@ -6,7 +6,7 @@ from collections import defaultdict
 
 
 def is_already_award(status, user):
-    for u, _, _ in status:
+    for u, _, _, _ in status:
         if u == user:
             return True
     return False
@@ -45,7 +45,7 @@ def condition1(data, status):
         # 이미 선택되지 않은 사람 선택
         if is_already_award(status, user):
             continue
-        status.append((user, time, "프리즈 이후 가장 첫 solve"))
+        status.append((user, time, "프리즈 이후 가장 첫 solve", "얼음땡 상"))
         break
 
 # 각 문제 제출 수로 만쥬의 식사를 풀었을 때 답이 가장 작은 사람 (동점자는 합이 가장 작은 사람 + 마지막 제출이 빠른 사람)
@@ -66,7 +66,7 @@ def condition2(data, status):
 
     for user in num:
         arr = num[user][0]
-        ret.append((user, max(arr) - min(arr), sum(arr), num[user][1]))
+        ret.append((user, sum(arr) - min(arr)*NUM_PROBLEM, sum(arr), num[user][1]))
     # 1. 결과가 가장 작은 사람
     # 2. 합이 가장 작은 사람
     # 3. 마지막 제출이 빠른 사람
@@ -75,7 +75,7 @@ def condition2(data, status):
         # 이미 선택되지 않은 사람 선택
         if is_already_award(status, user):
             continue
-        status.append((user, info, "각 문제 제출 수로 만쥬의 식사를 풀었을 때 답이 가장 작은 사람"))
+        status.append((user, info, "각 문제 제출 수로 만쥬의 식사를 풀었을 때 답이 가장 작은 사람", "만쥬의 밥상"))
         break
 
 
@@ -103,7 +103,7 @@ def condition3(data, status):
     for user, value, _, _ in ret:
         if is_already_award(status, user):
             continue
-        status.append((user, value, "첫 제출과 마지막 제출의 시간 차이가 가장 큰 사람"))
+        status.append((user, value, "첫 제출과 마지막 제출의 시간 차이가 가장 큰 사람", "마라토너 상"))
         break
 
 
@@ -144,7 +144,7 @@ def condition4(data, status):
     for user, lis_value, _ in ret:
         if is_already_award(status, user):
             continue
-        status.append((user, lis_value, "제출 메모리의 합의 LIS가 가장 긴 사람"))
+        status.append((user, lis_value, "제출 메모리의 합의 LIS가 가장 긴 사람", "정상에 오르다"))
         break
 
 
@@ -175,7 +175,7 @@ def condition5(data, status):
     for user, count, _ in ret:
         if is_already_award(status, user):
             continue
-        status.append((user, count, "가장 많이 제출한 사람"))
+        status.append((user, count, "가장 많이 제출한 사람", "노력이 가상"))
         break
 
 
@@ -200,7 +200,7 @@ def condition6(data, status):
     for user, elapsed, _ in ret:
         if is_already_award(status, user):
             continue
-        status.append((user, elapsed, "제출 실행시간 합을 1203으로 나눈 나머지가 가장 작은 사람"))
+        status.append((user, elapsed, "제출 실행시간 합을 1203으로 나눈 나머지가 가장 작은 사람", "KUPC 기념왕 상"))
         break
 
 # 가장 많이 틀린 뒤에 맞은 사람
@@ -248,7 +248,7 @@ def condition7(data, status):
     for user, cnt, _, _ in ret:
         if is_already_award(status, user):
             continue
-        status.append((user, cnt, "가장 많이 틀린 뒤에 맞은 사람"))
+        status.append((user, cnt, "가장 많이 틀린 뒤에 맞은 사람", "슬픈 건대생 상"))
         break
 
 # 마지막 오답이후 정답이 가장 빠른 사람
@@ -295,7 +295,7 @@ def condition8(data, status):
     for user, diff, _ in ret:
         if is_already_award(status, user):
             continue
-        status.append((user, diff, "마지막 오답이후 정답이 가장 빠른 사람"))
+        status.append((user, diff, "마지막 오답이후 정답이 가장 빠른 사람", "앗차 상"))
         break
 
 
@@ -315,7 +315,7 @@ def condition9(data, status):
         if is_already_award(status, user):
             continue
         # 0은 그냥 빈 값
-        status.append((user, 0, "킥보드로 통학하기를 가장 빨리 맞힌 사람"))
+        status.append((user, 0, "킥보드로 통학하기를 가장 빨리 맞힌 사람", ""))
         break
 
 # 정답 제출 시간간격이 가장 큰 사람(동점자는 마지막 제출이 가장 느린 사람)
@@ -361,7 +361,7 @@ def condition10(data, status):
     for user, m, _ in ret:
         if is_already_award(status, user):
             continue
-        status.append((user, m, "정답 제출 시간간격이 가장 큰 사람"))
+        status.append((user, m, "정답 제출 시간간격이 가장 큰 사람", "생각하는 동상"))
         break
 
 

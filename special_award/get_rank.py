@@ -51,16 +51,16 @@ def get_rank(timeline):
     ret = []
     for i in range(len(ret), len(ret) + BEST):
         user, _, p = total[i]
-        ret.append((user, p, "대상"))
+        ret.append((user, p, "대상", ""))
     for i in range(len(ret), len(ret) + GOLD):
         user, _, p = total[i]
-        ret.append((user, p, "금상"))
+        ret.append((user, p, "금상", ""))
     for i in range(len(ret), len(ret) + SILVER):
         user, _, p = total[i]
-        ret.append((user, p, "은상"))
+        ret.append((user, p, "은상", ""))
     for i in range(len(ret), len(ret) + BRONZE):
         user, _, p = total[i]
-        ret.append((user, p, "동상"))
+        ret.append((user, p, "동상", ""))
     return ret
 
 

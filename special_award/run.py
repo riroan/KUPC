@@ -16,13 +16,16 @@ if __name__ == "__main__":
         id2handle[handle2id[i]] = i
     rank = get_award()
     winner = []
-    for idx, info, award in rank:
-        winner.append((idx, id2handle[idx], award))
+    for idx, info, award, kind in rank:
+        winner.append((idx, id2handle[idx], award, kind))
     data = []
-
-    for i, (idx, user, award) in enumerate(winner):
-        d = {"id": idx, "rank": award,
-             "name": users[user][0], "group": users[user][1]}
+    for i, (idx, user, award, kind) in enumerate(winner):
+        if kind != "":
+            d = {"id": idx, "rank": kind,
+                "name": users[user][0], "group": award}
+        else:
+            d = {"id": idx, "rank": award,
+                 "name": users[user][0]}
         if award == "대상":
             d["icon"] = "crown_gold"
         elif award == "금상":
