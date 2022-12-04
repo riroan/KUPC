@@ -66,7 +66,8 @@ def condition2(data, status):
 
     for user in num:
         arr = num[user][0]
-        ret.append((user, sum(arr) - min(arr)*NUM_PROBLEM, sum(arr), num[user][1]))
+        ret.append((user, sum(arr) - min(arr) *
+                   NUM_PROBLEM, sum(arr), num[user][1]))
     # 1. 결과가 가장 작은 사람
     # 2. 합이 가장 작은 사람
     # 3. 마지막 제출이 빠른 사람
@@ -75,7 +76,8 @@ def condition2(data, status):
         # 이미 선택되지 않은 사람 선택
         if is_already_award(status, user):
             continue
-        status.append((user, info, "각 문제 제출 수로 만쥬의 식사를 풀었을 때 답이 가장 작은 사람", "만쥬의 밥상"))
+        status.append(
+            (user, info, "각 문제 제출 수로 만쥬의 식사를 풀었을 때 답이 가장 작은 사람", "만쥬의 밥상"))
         break
 
 
@@ -200,7 +202,8 @@ def condition6(data, status):
     for user, elapsed, _ in ret:
         if is_already_award(status, user):
             continue
-        status.append((user, elapsed, "제출 실행시간 합을 1203으로 나눈 나머지가 가장 작은 사람", "KUPC 기념왕 상"))
+        status.append(
+            (user, elapsed, "제출 실행시간 합을 1203으로 나눈 나머지가 가장 작은 사람", "KUPC 기념왕 상"))
         break
 
 # 가장 많이 틀린 뒤에 맞은 사람
@@ -301,6 +304,7 @@ def condition8(data, status):
 
 # 킥보드로 통학하기를 가장 빨리 맞힌 사람
 def condition9(data, status):
+    # 시간순 정렬
     data.sort(key=lambda x: x["id"])
     ret = []
     for item in data:
@@ -315,7 +319,7 @@ def condition9(data, status):
         if is_already_award(status, user):
             continue
         # 0은 그냥 빈 값
-        status.append((user, 0, "킥보드로 통학하기를 가장 빨리 맞힌 사람", ""))
+        status.append((user, 0, "킥보드로 통학하기를 가장 빨리 맞힌 사람", "헬멧은 꼭 차주 상"))
         break
 
 # 정답 제출 시간간격이 가장 큰 사람(동점자는 마지막 제출이 가장 느린 사람)
